@@ -45,7 +45,7 @@ Buttons to toggle collapse (data-bs-toggle="collapse", data-bs-target).
 
 ## Typography:
 
-> <h1 class="display-4 fw-bold">, <p class="fs-5 text-muted"> for headings and text.
+> h1 class="display-4 fw-bold", p class="fs-5 text-muted" for headings and text.
 
 ## Responsive Design:
 
