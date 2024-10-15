@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Sign Up</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap">
+    </head>
+
+    <body class="bg-light" style="background-image: url('assets/img/illustrations/homepage.jpg'); background-size: cover; background-attachment: fixed; background-position: center;">
+        <div class="text-center py-3">
+            <h2>NotoForge</h2>
+        </div>  
+        <div class="container-fluid d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+            <div class="card bg-light p-4 mb-2 rounded-3 shadow-lg" style="border-radius: 10px; width: 500px;">
+                <h2 class="text-center mb-4">Create Your Account</h2>
+                <!-- Email Signup Form -->
+                 <form id="signupForm" novalidate>
+                    <!-- Name Field -->
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control text-dark bg-light border-dark" id="name" placeholder="Enter your name" required>
+                        <div class="invalid-feedback">Please enter a valid name</div>
+                    </div>
+    
+                    <!-- Email Field -->
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control text-dark bg-light border-dark" id="email" placeholder="Enter your email" required>
+                        <div class="invalid-feedback">Please enter a valid email.</div>
+                    </div>
+    
+                    <!-- Password Field -->
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control text-dark bg-light border-dark" id="password" placeholder="Enter your password" required minlength="8">
+                        <div class="invalid-feedback">Password must be at least 8 characters long and include letters, numbers, and special characters.</div>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control text-dark bg-light border-dark" id="confirmPassword" placeholder="Confirm your password" required>
+                        <div class="invalid-feedback">Passwords do not match.</div>
+                    </div>
+    
+                    <!-- Terms and Conditions Checkbox -->
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" id="terms" required>
+                        <label class="form-check-label" for="terms">I agree to the terms and conditions</label>
+                        <div class="invalid-feedback">You must agree to the terms and conditions.</div>
+                    </div>
+
+                    <!-- Signup Button -->
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">Create Account</button>
+                    </div>
+                </form>
+    
+                <div id="signupMessage" class="mt-3"></div>
+
+                <!-- Link to Login Page -->
+                <div class="mt-3 text-center">
+                    <p>Already a user? <a href="index.html" style="color: rgb(25, 0, 255);">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    
+        <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script>
+        (function () {
+            'use strict';
+
+            var forms = document.querySelectorAll('#signupForm');
+
+            Array.prototype.slice.call(forms).forEach(function (form) {
+                const nameInput = document.getElementById('name');
+                const emailInput = document.getElementById('email');
+                const passwordInput = document.getElementById('password');
+                const confirmPasswordInput = document.getElementById('confirmPassword');
+                const termsInput = document.getElementById('terms');
+
+                // Validate fields in real-time
+                nameInput.addEventListener('input', function () {
+                    if (nameInput.value.trim() === '' || /[^a-zA-Z\s]/.test(nameInput.value) || nameInput.value.length > 40) {
+                        nameInput.classList.add('is-invalid');
+                    } else {
+                        nameInput.classList.remove('is-invalid');
+                    }
+                });
+
+                emailInput.addEventListener('input', function () {
+                    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z]+\.[a-zA-Z]{2,4}$/;
+                    if (!emailPattern.test(emailInput.value)) {
+                        emailInput.classList.add('is-invalid');
+                    } else {
+                        emailInput.classList.remove('is-invalid');
+                    }
+                });
+
+                passwordInput.addEventListener('input', function () {
+                    const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+                    if (!passwordPattern.test(passwordInput.value)) {
+                        passwordInput.classList.add('is-invalid');
+                    } else {
+                        passwordInput.classList.remove('is-invalid');
+                    }
+                });
+
+                confirmPasswordInput.addEventListener('input', function () {
+                    if (passwordInput.value !== confirmPasswordInput.value) {
+                        confirmPasswordInput.classList.add('is-invalid');
+                    } else {
+                        confirmPasswordInput.classList.remove('is-invalid');
+                    }
+                });
+
+                termsInput.addEventListener('change', function () {
+                    if (!termsInput.checked) {
+                        termsInput.classList.add('is-invalid');
+                    } else {
+                        termsInput.classList.remove('is-invalid');
+                    }
+                });
+
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    let valid = true;
+
+                    // Check for invalid fields before submitting
+                    const inputs = form.querySelectorAll('.form-control');
+                    inputs.forEach(input => {
+                        if (input.classList.contains('is-invalid')) {
+                            valid = false;
+                        }
+                    });
+
+                    if (valid) {
+                        const name = document.getElementById('name').value;
+                        // Redirect to homepage
+                        window.location.href = 'homepage.html'; 
+                    }
+
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+        </script>
+    </body>
+</html>
