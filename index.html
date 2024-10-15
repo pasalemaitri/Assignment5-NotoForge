@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&amp;display=swap"> -->
+    </head>
+
+    <body class="bg-light" style="background-image: url('assets/img/illustrations/homepage.jpg'); background-size: cover; background-attachment: fixed; background-position: center;">
+        <div class="text-center py-3">
+            <h2>NotoForge</h2>
+        </div>
+        <div class="container-fluid d-flex align-items-center justify-content-center" style="min-height: 80vh;">
+
+            <div class="col-md-4 bg-white p-4 rounded-3 shadow-lg" style="border-radius: 10px; width: 300px; ">
+    
+                <!-- Login Form -->
+                <form method="post" action="homepage.html" id="loginForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label text-dark">Username</label>
+                        <input type="text" class="form-control text-dark bg-light border-dark" id="username" placeholder="Enter your username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label text-dark">Password</label>
+                        <input type="password" class="form-control text-dark bg-light border-dark" id="password" placeholder="Enter your password" required>
+                        <a href="forgotpassword.html" class="text-dark" style="color: rgb(25, 0, 255);">Forgot your username or password?</a><br>
+                    </div>
+                    <button type="submit" class="btn btn-dark btn-block" style="color: white"><a  style="color: white;"  href="homepage.html">Login</button>
+                </form>
+    
+                <div class="text-center mt-3">
+                    <a href="signup.html" class="text-dark" style="color: rgb(25, 0, 255);"> Don't have an account? Sign Up</a>
+                </div>
+            </div>
+        </div>
+        
+    
+        <script>
+            document.getElementById('loginForm').addEventListener('submit', function (event) {
+                var username = document.getElementById('username').value;
+                var password = document.getElementById('password').value;
+    
+                // Add your validation criteria here
+                if (username.length < 6) {
+                    alert("Username must be at least 6 characters long.");
+                    event.preventDefault(); // Prevent form submission
+                }
+    
+                if (password.length < 8) {
+                    alert("Password must be at least 8 characters long.");
+                    event.preventDefault(); // Prevent form submission
+                }
+            });
+        </script>
+
+    </body>
+</html>
