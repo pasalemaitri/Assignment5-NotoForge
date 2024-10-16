@@ -1,0 +1,57 @@
+body {
+    background: linear-gradient(90deg, rgba(252, 176, 69, 1) 18%, rgba(131, 58,180, 1) 93%);
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+}
+
+.logo-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.text-container {
+    padding: 15px;
+}
+
+.image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    margin-top: 5%;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    width: auto;
+}
+
+@media (min-width: 768px) {
+    .image-container img {
+        max-width: none; /* Reset max-width for larger screens */
+        max-height: 100%; /* Maintain aspect ratio */
+        width: auto; /* Allow the image to scale proportionally */
+    }
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.btn {
+    width: 100%;
+    background-color: black;
+    color: white;
+}
+
+/* Add additional responsive styles as needed */
